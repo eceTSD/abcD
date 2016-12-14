@@ -14,7 +14,8 @@ namespace abcD
         public string abcD;
         protected void Page_Load(object sender, EventArgs e)
         {           
-            abcD = MusicApis.Song_Info("16686610");
+            abcD = MusicApis.test();
+            
         }
     }
 }
