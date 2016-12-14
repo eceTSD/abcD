@@ -8,45 +8,47 @@ using System.Text;
 
 namespace abcD.App_Code.MusicApi
 {
-    public class MusicApis
+    public abstract class MusicApis
     {
-        public MusicApis()
+        //网易云音乐 搜索接口
+        public static string WANGYI_SEARCH = "http://music.163.com/api/search/pc";
+
+        //网易云音乐 歌曲信息
+        public static string WANGYI_SONG = "http://music.163.com/api/song/detail/";
+
+        //网易云音乐 歌手信息
+        public static string WANGYI_ARTIST = "http://music.163.com/api/artist/albums/";
+
+        //网易云音乐 专辑信息
+        public static string WANGYI_ALBUM = "http://music.163.com/api/album/";
+
+        //网易云音乐 歌单信息
+        public static string WANGYI_APPLIST = "http://music.163.com/api/playlist/detail";
+
+        //网易云音乐 歌词信息
+        public static string WANGYI_LYRIC = "http://music.163.com/api/song/lyric";
+
+        //网易云音乐 mv信息
+        public static string WANGYI_VIEW = "GET http://music.163.com/api/mv/detail";
+
+
+
+
+
+        public static string Search_Api(string s, string type, string offset, string limit)
         {
+            string url = WANGYI_SEARCH;
+            string postData = "s=" + System.Web.HttpUtility.UrlEncode(s) + "&limit="+limit+"&type="+type+"&offset="+offset+"";
+            return HttpServer.Http_POST(url, postData);
+        }
+
+        public static string Song_Info(string id){
+            string url = WANGYI_SONG + "?id=" + id + "&ids=%5B" + id + "%5D";
+            return HttpServer.Http_GET(url);
 
         }
-        public string Get_Music()
-        {
-            string url = "http://music.163.com/api/search/pc";
-            string name = "周杰伦";
-            
-            string postData = "s="+ System.Web.HttpUtility.UrlEncode(name) + "&limit=20&type=1&offset=0";
-            
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-            request.Method = "POST";
-            request.Referer = "http://music.163.com/";
-            request.Headers.Add("Cookie", "appver=2.0.2");
-            request.ContentType = "application/x-www-form-urlencoded";
-           
-            Stream myRequestStream = request.GetRequestStream();
-            StreamWriter sw = new StreamWriter(myRequestStream,Encoding.ASCII);
-            sw.Write(postData);
-            sw.Close();
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
-            using (StreamReader sr = new StreamReader(response.GetResponseStream())) {
 
-                return sr.ReadToEnd().ToString();
-                
-            }
-        }
 
-        public static string get_uft8(string unicodeString)
-        {
-            UTF8Encoding utf8 = new UTF8Encoding();
-            Byte[] encodedBytes = utf8.GetBytes(unicodeString);
-            String decodedString = utf8.GetString(encodedBytes);
-            return decodedString;
-        }
     }
-
    
 }

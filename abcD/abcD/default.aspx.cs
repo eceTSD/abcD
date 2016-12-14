@@ -13,9 +13,8 @@ namespace abcD
     {
         public string abcD;
         protected void Page_Load(object sender, EventArgs e)
-        {
-            MusicApis ma = new MusicApis();
-            abcD =   ma.Get_Music();
+        {           
+            abcD = MusicApis.Song_Info("16686610");
         }
     }
 }
