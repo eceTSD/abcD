@@ -16,7 +16,7 @@ namespace abcD.App_Code.MusicApi
         //网易云音乐 歌曲信息
         public static string WANGYI_SONG = "http://music.163.com/api/song/detail/";
 
-        //网易云音乐 歌手信息
+        //网易云音乐 歌手专辑信息
         public static string WANGYI_ARTIST = "http://music.163.com/api/artist/albums/";
 
         //网易云音乐 专辑信息
@@ -34,7 +34,14 @@ namespace abcD.App_Code.MusicApi
 
 
 
-
+        /// <summary>
+        /// 歌曲搜索
+        /// </summary>
+        /// <param name="s">搜索关键字</param>
+        /// <param name="type">type歌曲 1 专辑 10 歌手 100 歌单 1000 用户 1002 mv 1004 歌词 1006</param>
+        /// <param name="offset">分页</param>
+        /// <param name="limit">每页显示数目</param>
+        /// <returns></returns>
         public static string Search_Api(string s, string type, string offset, string limit)
         {
             string url = WANGYI_SEARCH;
@@ -42,12 +49,33 @@ namespace abcD.App_Code.MusicApi
             return HttpServer.Http_POST(url, postData);
         }
 
+        /// <summary>
+        /// 歌曲信息
+        /// </summary>
+        /// <param name="id">歌曲id</param>
+        /// <returns></returns>
         public static string Song_Info(string id){
             string url = WANGYI_SONG + "?id=" + id + "&ids=%5B" + id + "%5D";
             return HttpServer.Http_GET(url);
-
         }
 
+        /// <summary>
+        /// 歌手专辑信息
+        /// </summary>
+        /// <param name="id">歌手id</param>
+        /// <param name="offset">分页</param>
+        /// <param name="limit">每页数目</param>
+        /// <returns></returns>
+        public static string Artist_Album_Info(string id,string offset,string limit)
+        {          
+            string url = WANGYI_ARTIST + id + "?id=" + id + "&total=true&offset=" + offset + "&limit=" + limit;
+            return HttpServer.Http_GET(url);
+        }
+
+        public static string test()
+        {
+            return HttpServer.Http_GET("http://music.163.com/api/playlist/detail?id=37880978&updateTime=-1");
+        }
 
     }
    
