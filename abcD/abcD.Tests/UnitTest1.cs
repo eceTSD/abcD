@@ -9,8 +9,6 @@ namespace abcD.Tests
         [TestMethod]
         public void TestMethod1()
         {
-            
         }
-
     }
 }

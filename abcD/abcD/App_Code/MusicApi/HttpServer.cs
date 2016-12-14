@@ -14,8 +14,8 @@ namespace abcD.App_Code.MusicApi
         /// <summary>
         /// Post方式获取数据
         /// </summary>
-        /// <param name="url">访问路径</param>
-        /// <param name="postData">提交数据</param>
+        /// <param name="url"></param>
+        /// <param name="postData"></param>
         /// <returns></returns>
         public static string Http_POST(string url,string postData)
         {
@@ -50,7 +50,7 @@ namespace abcD.App_Code.MusicApi
         /// <summary>
         /// Get方式获取数据
         /// </summary>
-        /// <param name="url">访问路径</param>
+        /// <param name="url"></param>
         /// <returns></returns>
         public static string Http_GET(string url)
         {

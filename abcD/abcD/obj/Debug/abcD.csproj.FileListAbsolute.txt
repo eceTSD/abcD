@@ -15,5 +15,6 @@ X:\abcD\abcD\abcD\bin\abcD.dll
 X:\abcD\abcD\abcD\bin\abcD.pdb
 X:\abcD\abcD\abcD\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 X:\abcD\abcD\abcD\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+X:\abcD\abcD\abcD\obj\Debug\abcD.csprojResolveAssemblyReference.cache
 X:\abcD\abcD\abcD\obj\Debug\abcD.dll
 X:\abcD\abcD\abcD\obj\Debug\abcD.pdb
