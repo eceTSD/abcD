@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Text;
+using abcD.App_Code.DataModel;
 
 namespace abcD.App_Code.MusicApi
 {
@@ -42,11 +43,13 @@ namespace abcD.App_Code.MusicApi
         /// <param name="offset">分页</param>
         /// <param name="limit">每页显示数目</param>
         /// <returns></returns>
-        public static string Search_Api(string s, string type, string offset, string limit)
+        public static List<DataBase> Search_Api(string s, string type, string offset, string limit)
         {
             string url = WANGYI_SEARCH;
             string postData = "s=" + System.Web.HttpUtility.UrlEncode(s) + "&limit="+limit+"&type="+type+"&offset="+offset+"";
-            return HttpServer.Http_POST(url, postData);
+            List<Song> songL = new List<Song>();
+            songL = ParseJson.ParseSongList(HttpServer.Http_POST(url, postData));
+            return songL.Cast<DataBase>().ToList();          
         }
 
         /// <summary>
