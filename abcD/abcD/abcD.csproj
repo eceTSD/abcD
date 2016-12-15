@@ -92,21 +92,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Code\DataModel\DataBase.cs" />
-    <Compile Include="App_Code\DataModel\Song.cs" />
-    <Compile Include="App_Code\DataModel\Artist.cs" />
-    <Compile Include="App_Code\DataModel\Album.cs" />
-    <Compile Include="App_Code\DataModel\AppList.cs" />
-    <Compile Include="App_Code\DataModel\Lyric.cs" />
-    <Compile Include="App_Code\DataModel\MV.cs" />
-    <Compile Include="App_Code\MusicApi\HttpServer.cs" />
     <Compile Include="App_Code\MusicApi\MusicApis.cs" />
-    <Compile Include="App_Code\MusicApi\ParseJson.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

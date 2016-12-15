@@ -1,5 +1,4 @@
-﻿using abcD.App_Code.DataModel;
-using abcD.App_Code.MusicApi;
+﻿using abcD.App_Code.MusicApi;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +13,8 @@ namespace abcD
     {
         public string abcD;
         protected void Page_Load(object sender, EventArgs e)
-        {
-            List<DataBase>  a = new List<DataBase>(MusicApis.Search_Api("","","",""));
-            List<Song> b = new List<Song>();
-            b = a.Cast<Song>().ToList();
+        {           
+            abcD = MusicApis.Song_Info("16686610");
         }
     }
 }
