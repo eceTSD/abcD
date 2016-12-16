@@ -6,9 +6,10 @@ using System.Net;
 using System.Text;
 using System.Web;
 
+
 namespace abcD.App_Code.MusicApi
 {
-    public abstract class HttpServer
+    public class HttpServer
     {
 
         /// <summary>

@@ -6,10 +6,13 @@ using System.Net;
 using System.Web;
 using System.Text;
 using abcD.App_Code.DataModel;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
 
 namespace abcD.App_Code.MusicApi
 {
-    public abstract class MusicApis
+    public static class MusicApis
     {
         //网易云音乐 搜索接口
         public static string WANGYI_SEARCH = "http://music.163.com/api/search/pc";
@@ -30,7 +33,7 @@ namespace abcD.App_Code.MusicApi
         public static string WANGYI_LYRIC = "http://music.163.com/api/song/lyric";
 
         //网易云音乐 mv信息
-        public static string WANGYI_VIEW = "GET http://music.163.com/api/mv/detail";
+        public static string WANGYI_VIEW = "http://music.163.com/api/mv/detail";
 
 
 
@@ -43,12 +46,12 @@ namespace abcD.App_Code.MusicApi
         /// <param name="offset">分页</param>
         /// <param name="limit">每页显示数目</param>
         /// <returns></returns>
-        public static List<DataBase> Search_Api(string s, string type, string offset, string limit)
+        public static List<DataBase> SearchApi(string s, string type, string offset, string limit)
         {
             string url = WANGYI_SEARCH;
             string postData = "s=" + System.Web.HttpUtility.UrlEncode(s) + "&limit="+limit+"&type="+type+"&offset="+offset+"";
             List<Song> songL = new List<Song>();
-            songL = ParseJson.ParseSongList(HttpServer.Http_POST(url, postData));
+            songL = ParseJson.GetSongL(HttpServer.Http_POST(url, postData));
             return songL.Cast<DataBase>().ToList();          
         }
 
@@ -57,7 +60,7 @@ namespace abcD.App_Code.MusicApi
         /// </summary>
         /// <param name="id">歌曲id</param>
         /// <returns></returns>
-        public static string Song_Info(string id){
+        public static string SongInfo(string id){
             string url = WANGYI_SONG + "?id=" + id + "&ids=%5B" + id + "%5D";
             return HttpServer.Http_GET(url);
         }
@@ -69,16 +72,58 @@ namespace abcD.App_Code.MusicApi
         /// <param name="offset">分页</param>
         /// <param name="limit">每页数目</param>
         /// <returns></returns>
-        public static string Artist_Album_Info(string id,string offset,string limit)
+        public static string ArtistAlbumInfo(string id,string offset,string limit)
         {          
             string url = WANGYI_ARTIST + id + "?id=" + id + "&total=true&offset=" + offset + "&limit=" + limit;
             return HttpServer.Http_GET(url);
         }
 
-        public static string test()
+        /// <summary>
+        /// 专辑信息
+        /// </summary>
+        /// <param name="id">专辑id</param>
+        /// <param name="offset">分页</param>
+        /// <param name="limit">页数</param>
+        /// <returns></returns>
+        public static string AlbumInfo(string id,string offset,string limit)
         {
-            return HttpServer.Http_GET("http://music.163.com/api/playlist/detail?id=37880978&updateTime=-1");
+            string url = WANGYI_ALBUM + id+"?ext=true&id="+id+"&offset="+offset+"&total=true&limit="+limit;
+            return HttpServer.Http_GET(url);
         }
+
+        /// <summary>
+        /// 歌单信息
+        /// </summary>
+        /// <param name="id">歌单id</param>
+        /// <returns></returns>
+        public static string AppList(string id)
+        {
+            string url = WANGYI_APPLIST + "?id=" + id + "&updateTime=-1";
+            return HttpServer.Http_GET(url);
+        }
+
+        /// <summary>
+        /// 歌词信息
+        /// </summary>
+        /// <param name="id">歌词id</param>
+        /// <returns></returns>
+        public static string LyricInfo(string id)
+        {
+            string url = WANGYI_LYRIC + "?os=pc&id="+id+"&lv=-1&kv=-1&tv=-1";
+            return HttpServer.Http_GET(url);
+        }
+
+        /// <summary>
+        /// 视频信息
+        /// </summary>
+        /// <param name="id">视频id</param>
+        /// <returns></returns>
+        public static string MVInfo(string id)
+        {
+            string url = WANGYI_VIEW + "?id="+id+"&type=mp4";
+            return HttpServer.Http_GET(url);
+        }
+        
 
     }
    
