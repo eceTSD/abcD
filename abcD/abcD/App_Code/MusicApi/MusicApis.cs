@@ -51,7 +51,7 @@ namespace abcD.App_Code.MusicApi
             string url = WANGYI_SEARCH;
             string postData = "s=" + System.Web.HttpUtility.UrlEncode(s) + "&limit="+limit+"&type="+type+"&offset="+offset+"";
             List<Song> songL = new List<Song>();
-           // songL = ParseJson.GetSongL(HttpServer.Http_POST(url, postData));
+            songL = ParseJson.GetSongL(HttpServer.Http_POST(url, postData));
             return songL.Cast<DataBase>().ToList();          
         }
 
