@@ -86,6 +86,7 @@ namespace abcD.App_Code.MusicApi
         {
             string url = WANGYI_SEARCH;
             string postData = "s=" + System.Web.HttpUtility.UrlEncode(s) + "&limit=" + limit + "&type=" + type + "&offset=" + offset + "";
+           
             return HttpServer.Http_POST(url,postData);
         }
 
@@ -96,9 +97,22 @@ namespace abcD.App_Code.MusicApi
         /// </summary>
         /// <param name="id">歌曲id</param>
         /// <returns></returns>
-        public static string SongInfo(string id){
+        public static List<Song> SongInfo(string id){
             string url = WANGYI_SONG + "?id=" + id + "&ids=%5B" + id + "%5D";
-            return HttpServer.Http_GET(url);
+            try
+            {
+                dynamic request = JsonConvert.DeserializeObject(HttpServer.Http_GET(url));
+                if(request.code == 200)
+                {
+                    return ParseJson.GetSongL(request.songs);
+                }
+            }
+            catch (Exception)
+            {
+
+                return new List<Song>();
+            }
+            return new List<Song>();
         }
 
         /// <summary>

@@ -20,8 +20,12 @@ namespace abcD.App_Code.MusicApi
         {
 
             dynamic songJ = JsonConvert.DeserializeObject(songJson);
-
             Song song = new Song();
+            song.Id = songJ.id;
+            song.Name = songJ.name;
+            song.Artist = GetArtistL(songJ.artists);
+            song.Album = GetAlbum(songJ.album);
+            song.Mp3Url = songJ.mp3Url;
             return song;
         }
 
@@ -79,6 +83,7 @@ namespace abcD.App_Code.MusicApi
         {
             dynamic albumj = JsonConvert.DeserializeObject(albumJson);
             Album album = new Album();
+            
 
             return album;
         }
