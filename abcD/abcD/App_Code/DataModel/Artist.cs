@@ -13,7 +13,7 @@ namespace abcD.App_Code.DataModel
 
         private string picUrl;
 
-        private int musicSize;
+        private int albumSize;
 
         private List<Album> hotAlbums;
 
@@ -71,16 +71,16 @@ namespace abcD.App_Code.DataModel
         /// <summary>
         /// 歌曲数量
         /// </summary>
-        public int MusicSize
+        public int AlbumSize
         {
             get
             {
-                return musicSize;
+                return albumSize;
             }
 
             set
             {
-                musicSize = value;
+                albumSize = value;
             }
         }
 

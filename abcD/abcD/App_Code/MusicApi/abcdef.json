@@ -1,0 +1,178 @@
+﻿{
+  "result": {
+    "playlists": [
+      {
+        "id": 60914945,
+        "name": "摇滚Live也可以温柔到骨子里",
+        "coverImgUrl": "http://p1.music.126.net/P9R57G-N1NYd8yFzqTyAfw==/7854911069425321.jpg",
+        "creator": {
+          "nickname": "一麻一麦",
+          "userId": 33412870,
+          "userType": 0,
+          "authStatus": 0
+        },
+        "subscribed": false,
+        "trackCount": 84,
+        "userId": 33412870,
+        "playCount": 2702679,
+        "bookCount": 45035,
+        "highQuality": true
+      },
+      {
+        "id": 759331,
+        "name": "中国摇滚编年史",
+        "coverImgUrl": "http://p1.music.126.net/GO9r85u9HZ7oxjPCIhtHSg==/2793859046202615.jpg",
+        "creator": {
+          "nickname": "动物",
+          "userId": 59078,
+          "userType": 0,
+          "authStatus": 0
+        },
+        "subscribed": false,
+        "trackCount": 210,
+        "userId": 59078,
+        "playCount": 1646250,
+        "bookCount": 31019,
+        "highQuality": false
+      },
+      {
+        "id": 9467124,
+        "name": "100首最伟大的硬摇滚",
+        "coverImgUrl": "http://p1.music.126.net/-olvb3I26N1K8pnjuBBmAg==/5869193069231082.jpg",
+        "creator": {
+          "nickname": "帅到掉渣",
+          "userId": 520621,
+          "userType": 0,
+          "authStatus": 0
+        },
+        "subscribed": false,
+        "trackCount": 100,
+        "userId": 520621,
+        "playCount": 1213221,
+        "bookCount": 41174,
+        "highQuality": false
+      },
+      {
+        "id": 106514355,
+        "name": "摇滚是一种态度",
+        "coverImgUrl": "http://p1.music.126.net/GRYlxNtS-qvXbOWXm9w9cg==/3272146605227859.jpg",
+        "creator": {
+          "nickname": "摇滚行",
+          "userId": 85084846,
+          "userType": 0,
+          "authStatus": 0
+        },
+        "subscribed": false,
+        "trackCount": 100,
+        "userId": 85084846,
+        "playCount": 1883022,
+        "bookCount": 27767,
+        "highQuality": false
+      },
+      {
+        "id": 32471960,
+        "name": "温柔的摇滚吟颂者",
+        "coverImgUrl": "http://p1.music.126.net/h4I7lnnAxIqiw6y7-PfmkA==/6646547790789163.jpg",
+        "creator": {
+          "nickname": "别情先生",
+          "userId": 31080099,
+          "userType": 0,
+          "authStatus": 0
+        },
+        "subscribed": false,
+        "trackCount": 40,
+        "userId": 31080099,
+        "playCount": 1550873,
+        "bookCount": 36320,
+        "highQuality": true
+      },
+      {
+        "id": 111036206,
+        "name": "摇滚启示录：音乐的生命在现场",
+        "coverImgUrl": "http://p1.music.126.net/XKcpBQcdaaOIgz1cM9POhQ==/3293037326197222.jpg",
+        "creator": {
+          "nickname": "果酱音乐",
+          "userId": 60370317,
+          "userType": 1,
+          "authStatus": 1
+        },
+        "subscribed": false,
+        "trackCount": 43,
+        "userId": 60370317,
+        "playCount": 1583208,
+        "bookCount": 21746,
+        "highQuality": true
+      },
+      {
+        "id": 9907995,
+        "name": "英伦摇滚圣经",
+        "coverImgUrl": "http://p1.music.126.net/wlRAgDXI95CCrB4j9Cg-Iw==/6039617371510780.jpg",
+        "creator": {
+          "nickname": "帅到掉渣",
+          "userId": 520621,
+          "userType": 0,
+          "authStatus": 0
+        },
+        "subscribed": false,
+        "trackCount": 98,
+        "userId": 520621,
+        "playCount": 780669,
+        "bookCount": 21319,
+        "highQuality": false
+      },
+      {
+        "id": 509497517,
+        "name": "大不列颠摇滚五十年",
+        "coverImgUrl": "http://p1.music.126.net/dTxZyopHa9rfHoCokMG6pQ==/109951162808844875.jpg",
+        "creator": {
+          "nickname": "SCHOOL学校酒吧",
+          "userId": 279163426,
+          "userType": 0,
+          "authStatus": 1
+        },
+        "subscribed": false,
+        "trackCount": 132,
+        "userId": 279163426,
+        "playCount": 997733,
+        "bookCount": 14473,
+        "highQuality": false
+      },
+      {
+        "id": 473322695,
+        "name": "华语摇滚女声|爱冲撞的姑娘最漂亮",
+        "coverImgUrl": "http://p1.music.126.net/WE4n52PHjTV-RJBkzVw7MQ==/3265549596208903.jpg",
+        "creator": {
+          "nickname": "wenny510",
+          "userId": 46360961,
+          "userType": 0,
+          "authStatus": 0
+        },
+        "subscribed": false,
+        "trackCount": 30,
+        "userId": 46360961,
+        "playCount": 1107096,
+        "bookCount": 10652,
+        "highQuality": false
+      },
+      {
+        "id": 138911210,
+        "name": "啤酒邂逅音乐之华语摇滚",
+        "coverImgUrl": "http://p1.music.126.net/DpLhHhsAOR8NZXOc9BG2Qg==/1364493965958140.jpg",
+        "creator": {
+          "nickname": "YIFUS",
+          "userId": 57027929,
+          "userType": 0,
+          "authStatus": 0
+        },
+        "subscribed": false,
+        "trackCount": 108,
+        "userId": 57027929,
+        "playCount": 4490005,
+        "bookCount": 78310,
+        "highQuality": false
+      }
+    ],
+    "playlistCount": 200
+  },
+  "code": 200
+}

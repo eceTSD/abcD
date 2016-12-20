@@ -20,6 +20,8 @@ namespace abcD.App_Code.DataModel
 
         private long trackNumberUpdateTime;
 
+        private string coverImgUrl;
+
 
         /// <summary>
         /// 歌单id
@@ -102,6 +104,9 @@ namespace abcD.App_Code.DataModel
             }
         }
 
+        /// <summary>
+        /// 创建时间
+        /// </summary>
         public long TrackNumberUpdateTime
         {
             get
@@ -112,6 +117,22 @@ namespace abcD.App_Code.DataModel
             set
             {
                 trackNumberUpdateTime = value;
+            }
+        }
+
+        /// <summary>
+        /// 封面
+        /// </summary>
+        public string CoverImgUrl
+        {
+            get
+            {
+                return coverImgUrl;
+            }
+
+            set
+            {
+                coverImgUrl = value;
             }
         }
     }

@@ -45,15 +45,51 @@ namespace abcD.App_Code.MusicApi
         /// <param name="type">type歌曲 1 专辑 10 歌手 100 歌单 1000 用户 1002 mv 1004 歌词 1006</param>
         /// <param name="offset">分页</param>
         /// <param name="limit">每页显示数目</param>
-        /// <returns></returns>
+        /// <returns>返回database基础类型根据类型转换类型</returns>
         public static List<DataBase> SearchApi(string s, string type, string offset, string limit)
         {
             string url = WANGYI_SEARCH;
-            string postData = "s=" + System.Web.HttpUtility.UrlEncode(s) + "&limit="+limit+"&type="+type+"&offset="+offset+"";
-            List<Song> songL = new List<Song>();
-           // songL = ParseJson.GetSongL(HttpServer.Http_POST(url, postData));
-            return songL.Cast<DataBase>().ToList();          
+            string postData = "s=" + System.Web.HttpUtility.UrlEncode(s) + "&limit="+limit+"&type="+type+"&offset="+offset+"";         
+            try
+            {
+                dynamic request = JsonConvert.DeserializeObject(HttpServer.Http_POST(url, postData));
+                if (request.code == 200)
+                {
+                    dynamic result = JsonConvert.DeserializeObject(request.result.ToString());
+                    if (type == "1")
+                    {                                        
+                        return ParseJson.GetSongL(request.songs).Cast<DataBase>().ToList();
+                    }
+                    else if (type == "10")
+                    {                                              
+                        return ParseJson.GetAlbumL(request.albums).Cast<DataBase>().ToList();
+                    }
+                    else if (type == "100")
+                    {
+                        return ParseJson.GetArtistL(request.artists).Cast<DataBase>().ToList();
+                    }
+                    else if(type == "1000")
+                    {
+                        return ParseJson.GetAppListL(request.playlists).Cast<DataBase>().ToList();
+                    }
+                }
+
+            }
+            catch (Exception)
+            {
+                return new List<DataBase>(0);
+            }
+            return new List<DataBase>(0);               
         }
+
+        public static string test(string s, string type, string offset, string limit)
+        {
+            string url = WANGYI_SEARCH;
+            string postData = "s=" + System.Web.HttpUtility.UrlEncode(s) + "&limit=" + limit + "&type=" + type + "&offset=" + offset + "";
+            return HttpServer.Http_POST(url,postData);
+        }
+
+
 
         /// <summary>
         /// 歌曲信息
