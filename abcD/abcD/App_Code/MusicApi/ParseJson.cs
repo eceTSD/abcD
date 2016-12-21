@@ -58,8 +58,18 @@ namespace abcD.App_Code.MusicApi
             appList.Name = appListj.name;
             appList.PlayCount = appListj.playCount;
             appList.TrackCount = appListj.trackCount;
-            appList.TrackNumberUpdateTime = appListj.trackNumberUpdateTime;
-            appList.Tracks = GetSongL(appListj.tracks);
+            try
+            {
+                appList.TrackNumberUpdateTime = appListj.trackNumberUpdateTime;
+                appList.Tracks = GetSongL(appListj.tracks);
+            }
+            catch (Exception)
+            {
+
+                appList.TrackNumberUpdateTime = 0;
+                appList.Tracks = new List<Song>();
+            }           
+
 
             return appList;
         }

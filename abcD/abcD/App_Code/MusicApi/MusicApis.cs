@@ -83,16 +83,6 @@ namespace abcD.App_Code.MusicApi
             return new List<DataBase>(0);               
         }
 
-        public static string test(string s, string type, string offset, string limit)
-        {
-            string url = WANGYI_SEARCH;
-            string postData = "s=" + System.Web.HttpUtility.UrlEncode(s) + "&limit=" + limit + "&type=" + type + "&offset=" + offset + "";
-           
-            return HttpServer.Http_POST(url,postData);
-        }
-
-
-
         /// <summary>
         /// 歌曲信息
         /// </summary>
