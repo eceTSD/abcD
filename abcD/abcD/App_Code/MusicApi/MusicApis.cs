@@ -123,10 +123,23 @@ namespace abcD.App_Code.MusicApi
         /// <param name="offset">分页</param>
         /// <param name="limit">每页数目</param>
         /// <returns></returns>
-        public static string ArtistAlbumInfo(string id,string offset,string limit)
+        public static Artist ArtistAlbumInfo(string id,string offset,string limit)
         {          
             string url = WANGYI_ARTIST + id + "?id=" + id + "&total=true&offset=" + offset + "&limit=" + limit;
-            return HttpServer.Http_GET(url);
+            try
+            {
+                dynamic request = JsonConvert.DeserializeObject(HttpServer.Http_GET(url));
+                if (request.code == 200)
+                {
+                    return ParseJson.GetArtist(request.artist.ToString());
+                }
+            }
+            catch (Exception)
+            {
+
+                new Artist();
+            }
+            return new Artist();
         }
 
         /// <summary>
@@ -136,10 +149,23 @@ namespace abcD.App_Code.MusicApi
         /// <param name="offset">分页</param>
         /// <param name="limit">页数</param>
         /// <returns></returns>
-        public static string AlbumInfo(string id,string offset,string limit)
+        public static Album AlbumInfo(string id,string offset,string limit)
         {
             string url = WANGYI_ALBUM + id+"?ext=true&id="+id+"&offset="+offset+"&total=true&limit="+limit;
-            return HttpServer.Http_GET(url);
+            try
+            {
+                dynamic request = JsonConvert.DeserializeObject(HttpServer.Http_GET(url));
+                if (request.code == 200)
+                {
+                    return ParseJson.GetAlbum(request.album.ToString());
+                }
+            }
+            catch (Exception)
+            {
+
+               return new Album();
+            }
+            return new Album();
         }
 
         /// <summary>
@@ -147,10 +173,23 @@ namespace abcD.App_Code.MusicApi
         /// </summary>
         /// <param name="id">歌单id</param>
         /// <returns></returns>
-        public static string AppList(string id)
+        public static AppList AppList(string id)
         {
             string url = WANGYI_APPLIST + "?id=" + id + "&updateTime=-1";
-            return HttpServer.Http_GET(url);
+            try
+            {
+                dynamic request = JsonConvert.DeserializeObject(HttpServer.Http_GET(url));
+                if (request.code == 200)
+                {
+                    return ParseJson.GetAppList(request.result.ToString());
+                }
+            }
+            catch (Exception)
+            {
+
+                return new AppList();
+            }
+            return new AppList();
         }
 
         /// <summary>

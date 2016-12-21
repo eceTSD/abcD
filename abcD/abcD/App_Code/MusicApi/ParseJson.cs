@@ -142,7 +142,7 @@ namespace abcD.App_Code.MusicApi
             }
             catch (Exception)
             {
-
+                artist.HotAlbums = new List<Album>();
             }
             return artist;
         }
