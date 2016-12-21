@@ -51,26 +51,27 @@ namespace abcD.App_Code.MusicApi
             string url = WANGYI_SEARCH;
             string postData = "s=" + System.Web.HttpUtility.UrlEncode(s) + "&limit="+limit+"&type="+type+"&offset="+offset+"";         
             try
-            {
+            {               
                 dynamic request = JsonConvert.DeserializeObject(HttpServer.Http_POST(url, postData));
                 if (request.code == 200)
                 {
                     dynamic result = JsonConvert.DeserializeObject(request.result.ToString());
+                    
                     if (type == "1")
-                    {                                        
-                        return ParseJson.GetSongL(request.songs).Cast<DataBase>().ToList();
+                    {
+                        return new List<DataBase>(ParseJson.GetSongL(result.songs));
                     }
                     else if (type == "10")
                     {                                              
-                        return ParseJson.GetAlbumL(request.albums).Cast<DataBase>().ToList();
+                        return new List<DataBase>(ParseJson.GetAlbumL(result.albums));
                     }
                     else if (type == "100")
                     {
-                        return ParseJson.GetArtistL(request.artists).Cast<DataBase>().ToList();
+                        return new List<DataBase>(ParseJson.GetArtistL(result.artists));
                     }
                     else if(type == "1000")
                     {
-                        return ParseJson.GetAppListL(request.playlists).Cast<DataBase>().ToList();
+                        return new List<DataBase>(ParseJson.GetAppListL(result.playlists));
                     }
                 }
 

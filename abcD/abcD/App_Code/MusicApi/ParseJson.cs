@@ -24,7 +24,7 @@ namespace abcD.App_Code.MusicApi
             song.Id = songJ.id;
             song.Name = songJ.name;
             song.Artist = GetArtistL(songJ.artists);
-            song.Album = GetAlbum(songJ.album);
+            song.Album = GetAlbum(songJ.album.ToString());
             song.Mp3Url = songJ.mp3Url;
             return song;
         }
@@ -54,6 +54,12 @@ namespace abcD.App_Code.MusicApi
         {
             dynamic appListj = JsonConvert.DeserializeObject(appListJson);
             AppList appList = new AppList();
+            appList.Id = appListj.id;
+            appList.Name = appListj.name;
+            appList.PlayCount = appListj.playCount;
+            appList.TrackCount = appListj.trackCount;
+            appList.TrackNumberUpdateTime = appListj.trackNumberUpdateTime;
+            appList.Tracks = GetSongL(appListj.tracks);
 
             return appList;
         }
@@ -83,7 +89,19 @@ namespace abcD.App_Code.MusicApi
         {
             dynamic albumj = JsonConvert.DeserializeObject(albumJson);
             Album album = new Album();
-            
+            album.Id = albumj.id;
+            album.Name = albumj.name;
+            album.PictureUrl = albumj.picUrl;
+            album.BlurPicture = albumj.blurPicUrl;
+            album.Company = albumj.company;
+            album.PublishTime = albumj.publishTime;
+            album.SubType = albumj.subType;
+            album.Size = albumj.size;
+            album.Artist = GetArtistL(albumj.artists);
+            album.Songs = GetSongL(albumj.songs);
+
+
+
 
             return album;
         }
@@ -114,7 +132,18 @@ namespace abcD.App_Code.MusicApi
         {
             dynamic artistj = JsonConvert.DeserializeObject(artistJson);
             Artist artist = new Artist();
+            artist.Id = artistj.id;
+            artist.Name = artistj.name;
+            artist.PicUrl = artistj.picUrl;
+            artist.AlbumSize = artistj.albumSize;
+            try
+            {
+                artist.HotAlbums = GetAlbumL(artistj.hotAlbums);
+            }
+            catch (Exception)
+            {
 
+            }
             return artist;
         }
 
