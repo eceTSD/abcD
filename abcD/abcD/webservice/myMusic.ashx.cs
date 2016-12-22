@@ -20,15 +20,15 @@ namespace abcD.webservice
             string s = context.Request.Params["s"] == null ? "" : context.Request.Params["s"].ToString();
            if (s == "") { s = "Joe Satriani"; }
             context.Response.ContentType = "text/json";
-             List<Song> songlist = MusicApis.SearchApi(s, "1", "0", "10").Cast<Song>().ToList();
-            List<onesong> songl = new List<onesong>();
+             List<Song> songlist = MusicApis.SearchApi(s, "1", "0", "20").Cast<Song>().ToList();
+            List<onesongnew> songl = new List<onesongnew>();
             foreach (Song song in songlist)
             {
-                onesong onesong = new onesong();
+                onesongnew onesong = new onesongnew();
                 onesong.title = song.Name;
-                onesong.artist = song.Artist[0].Name;
-                onesong.mp3 = song.Mp3Url;
-                onesong.poster = song.Album.PictureUrl;
+                onesong.author = song.Artist[0].Name;
+                onesong.url = song.Mp3Url;
+                onesong.pic = song.Album.PictureUrl;
                 songl.Add(onesong);
             }
 

@@ -20,7 +20,8 @@ function search() {
 
             var options = {
                 swfPath: "http://cdnjs.cloudflare.com/ajax/libs/jplayer/2.6.4/jquery.jplayer/Jplayer.swf",
-                supplied: "ogv, m4v, oga, mp3"
+                supplied: "ogv, m4v, oga, mp3",
+                autoPlay:true
             };
 
             var myPlaylist = new jPlayerPlaylist(cssSelector, playlist, options);
