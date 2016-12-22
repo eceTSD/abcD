@@ -1,10 +1,16 @@
-/* 代码整理：懒人之家 www.lanrenzhijia.com */
 $(document).ready(function(){
+    search();
+});
+
+function search() {
     $.ajax({
         type: "post",
         url: "../webservice/myMusic.ashx",
         dataType: "json",
-        success: function (data) {            
+        data: {
+            s: $("#searchvalue").val()
+        },
+        success: function (data) {
             var playlist = data;
 
             var cssSelector = {
@@ -19,7 +25,8 @@ $(document).ready(function(){
 
             var myPlaylist = new jPlayerPlaylist(cssSelector, playlist, options);
         },
-        error: function(XMLHttpRequest, textStatus, errorThrown) {          
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert(errorThrown);
-        }});  
-});
+        }
+    });
+}

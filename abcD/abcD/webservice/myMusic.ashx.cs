@@ -16,8 +16,11 @@ namespace abcD.webservice
 
         public void ProcessRequest(HttpContext context)
         {
+
+            string s = context.Request.Params["s"] == null ? "" : context.Request.Params["s"].ToString();
+           if (s == "") { s = "Joe Satriani"; }
             context.Response.ContentType = "text/json";
-            List<Song> songlist = MusicApis.SearchApi("linkin park", "1", "0", "10").Cast<Song>().ToList();
+             List<Song> songlist = MusicApis.SearchApi(s, "1", "0", "10").Cast<Song>().ToList();
             List<onesong> songl = new List<onesong>();
             foreach (Song song in songlist)
             {
