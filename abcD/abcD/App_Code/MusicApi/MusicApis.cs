@@ -67,7 +67,7 @@ namespace abcD.App_Code.MusicApi
                     }
                     else if (type == "100")
                     {
-                        return new List<DataBase>(ParseJson.GetArtistL(result.artists));
+                        return new List<DataBase>(ParseJson.GetArtistL(result.artists));   
                     }
                     else if(type == "1000")
                     {
@@ -127,7 +127,7 @@ namespace abcD.App_Code.MusicApi
             catch (Exception)
             {
 
-                new Artist();
+               return new Artist();
             }
             return new Artist();
         }
